@@ -1,4 +1,4 @@
-#Dual-Mode Smart Car — Autonomous Color Tracking & Laptop Control
+##Dual-Mode Smart Car — Autonomous Color Tracking & Laptop Control
 
 This project implements a dual-mode smart robotic vehicle powered by an ESP32 and controlled via Python, OpenCV, and a Kivy UI interface.
 The system can operate autonomously by tracking colors using a smartphone camera, or manually through a laptop control interface.
