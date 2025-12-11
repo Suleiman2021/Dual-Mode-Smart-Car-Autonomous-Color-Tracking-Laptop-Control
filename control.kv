@@ -1,0 +1,139 @@
+MainW:
+    FirstW:
+    SecundW:
+    TherdW:
+
+<FirstW>:
+    name:"first"
+    GridLayout:
+        padding:50
+        cols:1
+        Label:
+            text:"Welcome To Control App"
+            font_size:25
+        TextInput:
+            id:Ip
+            hint_text:"please Enter the IP"
+            size_hint:(.1,.1)
+        Button:
+            text:"submit"
+            size_hint:(.1,.1)
+            on_release:
+                app.getTextInput(Ip.text)
+            background_color:(0,30/255,150/255,0.7)
+        GridLayout:
+            cols:2
+            rows:1
+            size_hint:(.1,.1)
+            Button:
+                text:"Auto"
+                on_release:
+                    app.root.current="three"
+                    root.manager.transition.direction="right"
+                    app.ena()
+                    app.run_vid()
+                background_color:(0,30/255,150/255,0.7)
+                
+                
+
+            Button:
+                text:"Manual"
+                on_release:
+                    app.root.current="tow"
+                    root.manager.transition.direction="left"
+                    app.dis()
+                    app.run_vid()
+
+                background_color:(0,30/255,150/255,0.7)
+                
+
+<SecundW>:
+    name:"tow"
+    GridLayout:
+        padding:50
+        cols:1
+        rows:3
+        #Label:
+            #text:"Plase  Click Control Button  "
+            #font_size:20
+        
+        Image:
+            # this is where the video will show
+            # the id allows easy access
+            id: vid
+            size_hint: 1, 0.6
+            allow_stretch: True  # allow the video image to be scaled
+            keep_ratio: True  # keep the aspect ratio so people don't look squashed
+            pos_hint: {'center_x':0.5, 'top':0.8}
+            
+            
+        GridLayout:
+            cols:1
+            rows:3
+            Button:
+                text:"Front"
+                background_color:(0,30/255,150/255,0.7)
+                on_press:app.tr('r')
+                on_release:app.tr('s')
+            GridLayout:
+                cols:2
+                rows:1
+                Button:
+                    text:"Left"
+                    background_color:(0,30/255,150/255,0.7)
+                    on_press:app.tr('b')
+                    on_release:app.tr('s')
+
+                Button:
+                    text:"Right"
+                    background_color:(0,30/255,150/255,0.7)
+                    on_press:app.tr('u')
+                    on_release:app.tr('s')
+
+            Button:
+                text:"Back"
+                background_color:(0,30/255,150/255,0.7)
+                on_press:app.tr('l')
+                on_release:app.tr('s')
+
+
+        Button:
+            text:"To back Window"
+            background_color:(0,30/255,150/255,0.7)
+            size_hint:(0.1,0.3)
+            
+            on_release:
+                app.root.current="first"
+                root.manager.transition.direction="right"
+                app.stop_vid()
+
+<TherdW>:
+    name:"three"
+    GridLayout:
+        padding:50
+        cols:1
+        #rows:3
+        #Label:
+            #text:" Loding the  Camera"
+            #font_size:20
+        
+        Image:
+            # this is where the video will show
+            # the id allows easy access
+            id: vid
+            size_hint: 1, 0.6
+            allow_stretch: True  # allow the video image to be scaled
+            keep_ratio: True  # keep the aspect ratio so people don't look squashed
+            pos_hint: {'center_x':0.5, 'top':0.8}
+                
+                
+
+        Button:
+            text:"back"
+            size_hint:(0.1,0.1)
+            background_color:(0,30/255,150/255,0.7)
+            on_release:
+                app.root.current="first"
+                root.manager.transition.direction="left"
+                app.stop_vid()
+
